@@ -10,9 +10,8 @@ func Routes() http.Handler {
 	r := chi.NewRouter()
 
 	r.Post("/articles", createArticleHandler)
-	// r.Get("/articles", listArticlesHandler)
-	// r.Delete("/articles/{id}", deleteArticlesHandler)
+	r.Get("/articles", listArticlesHandler)
 	// r.Put("/articles/{id}", updateArticlesHandler)
-
+	// r.Delete("/articles/{id}", deleteArticlesHandler)
 	return r
 }

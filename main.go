@@ -13,8 +13,10 @@ func main() {
 	fmt.Println("Lets build a RESTful API with Go")
 
 	r := chi.NewRouter()
-
+	fmt.Println("starting the server now")
 	r.Mount("/v1/", articles.Routes())
-	http.ListenAndServe(":3000", r)
+	if err := http.ListenAndServe(":3030", r); err != nil {
+		fmt.Println("server start failed", err)
+	}
 
 }
