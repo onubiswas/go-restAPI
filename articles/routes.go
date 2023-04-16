@@ -11,7 +11,7 @@ func Routes() http.Handler {
 
 	r.Post("/articles", createArticleHandler)
 	r.Get("/articles", listArticlesHandler)
-	// r.Put("/articles/{id}", updateArticlesHandler)
+	r.Put("/articles", updateArticlesHandler)
 	// r.Delete("/articles/{id}", deleteArticlesHandler)
 	return r
 }

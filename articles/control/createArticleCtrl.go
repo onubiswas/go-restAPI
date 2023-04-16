@@ -8,8 +8,6 @@ import (
 	"github.com/google/uuid"
 )
 
-var ArticleList []models.Article
-
 type CreateArticleRequestBody struct {
 	Title       string `json:"title"`
 	Description string `json:"description"`
@@ -55,8 +53,8 @@ func (ctrl *CreateArticleRequestBody) create() *CreateArticleApiResponse {
 	}
 
 	logger.Info("saving article...")
-	ArticleList = append(ArticleList, article)
-
+	models.ArticleList[article.Id] = article
+	logger.Info("saved article...")
 	return &CreateArticleApiResponse{
 		Item: &CreateArticleApiResponseItem{article},
 	}

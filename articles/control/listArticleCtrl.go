@@ -5,10 +5,10 @@ import (
 )
 
 type ArticleListApiResponse struct {
-	Items           []models.Article `json:"items"`
-	Error           error            `json:"error"`
-	ErrorStatusCode int              `json:"-"`
-	ErrorAppCode    int              `json:"code,omitempty"`
+	Items           map[string]models.Article `json:"items"`
+	Error           error                     `json:"error"`
+	ErrorStatusCode int                       `json:"-"`
+	ErrorAppCode    int                       `json:"code,omitempty"`
 }
 
 func Run() *ArticleListApiResponse {
@@ -20,6 +20,6 @@ func listSamiti() *ArticleListApiResponse {
 	logger.Info("Reading article from slice...")
 
 	return &ArticleListApiResponse{
-		Items: ArticleList,
+		Items: models.ArticleList,
 	}
 }
